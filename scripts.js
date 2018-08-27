@@ -5,25 +5,19 @@ var locationName = ["7th level of hell", "oval office", "library", "spaceship", 
 
 for (var i = 1; i < 100; i++) {
     createAlert(i);
-}
+};
 function createAlert(i) {
-    var h3 = `Accusation ${i}`;
-    $('h3').click(function callAlert() {
+    var h3 = $(`<h3 id${i}>Accusation ${i}</h3>`);
+
+    $(document.body).append(h3);
+    
+    h3.click(function () {
         var f = friendsNames[i % 5];
         var w = weaponName[i % 20];
         var l = locationName[i % 10];
-        return alert(`${h3}: I accuse ${f}, with the ${w} in the ${l}!`)
         console.log(f);
         console.log(w);
         console.log(l);
-        console.log(h3);
-    })
-}
-
-
-
-
-
-
-
-
+        return alert(`Accusation ${i}: I accuse ${f}, with the ${w} in the ${l}!`)
+    });
+};
